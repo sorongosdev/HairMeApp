@@ -23,6 +23,9 @@
 ## UI/UX 디자인
 피그마를 이용해 디자인팀이 제작했다.
 
+피그마 링크
+https://www.figma.com/file/Xm5XCFiPuk98dxbZZdzEjB/Untitled?node-id=0%3A1
+
 ## 개발 환경
 안드로이드 스튜디오에서 자바 언어로 개발을 진행했다.
  
