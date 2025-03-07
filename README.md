@@ -11,115 +11,112 @@
 
 ### 🔍 1) 프레임워크 및 언어
 - Front-end: Java 8 (1.8)
-- Back-end: Real-time Firebase ()
+- Back-end: Real-time Firebase (29.3.1)
 
 ### 🔧 2) 개발 도구
-Android Studio: 2024.2.2
+- Android Studio: Bumblebee (2021.1.1)
+- Gradle: 7.2
+- JDK: 11
 
 ### 📱 3) 테스트 환경
-- Android 에뮬레이터: API 레벨 34 (Android 14.0)
-- Mobile Robot Temi: 
+- Android 에뮬레이터: API 레벨 32 (Android 12L)
+- Mobile Robot Temi: API 레벨 32 (Android 12L)
 
 ### 📚 4) 주요 라이브러리 및 API
-- permission_handler: 11.2.0
+- robotemi:sdk: 0.10.77 (Temi 로봇 제어용 SDK)
+- firebase-bom: 29.3.1 (Firebase 관련)
+- firebase-analytics
+- firebase-database
 
 ### 🔖 5) 버전 및 이슈 관리
-- Git: 2.39.3
+- Git: 2.45.2
 
 ### 👥 6) 협업 툴
-- 커뮤니케이션: Kakaotalk, Email
-- 문서 관리: Notion
+- 커뮤니케이션: Kakaotalk, Figma
 
 ### ☁️ 7) 서비스 배포 환경
-- 백엔드 서버: 자체 WebSocket 서버 (WSS 프로토콜)
-- 배포 방식: 자체 호스팅
+- 백엔드 서버: Firebase Realtime Database
+- 배포 방식: Firebase Cloud 호스팅
 
 ## ▶️ 3. 프로젝트 실행 방법
 
 ### ⬇️ 1) 필수 설치 사항
 
 #### ① 기본 환경
-- Flutter SDK (최소 3.2.3 버전 필요)
-- Dart SDK (3.2.3 이상)
 - Android Studio (최신 버전)
-- Android SDK: Flutter, Dart 플러그인
-- Xcode (iOS 개발용, macOS 필요)
-- CocoaPods (iOS 의존성 관리, macOS 필요)
+- Java JDK (Java 8 이상)
+- Android SDK (minSdk 23, targetSdk 32)
+- Google Play 서비스 SDK
 
 #### ② 필수 의존성 패키지
-- flutter: SDK
-- cupertino_icons: 1.0.2
-- intl: 0.19.0
-- isolate: 2.1.1
+- androidx.appcompat:appcompat: 1.4.2
+- com.google.android.material:material: 1.6.1
+- androidx.constraintlayout:constraintlayout: 2.1.4
 
 ### ⿻ 2) 프로젝트 클론 및 설정
 - 프로젝트 클론
 ```bash
-git clone https://github.com/sorongosdev/flutter_app.git
+git clone https://github.com/sorongosdev/HairTemi.git
 ```
 - 의존성 설치
 ```bash
-flutter pub get
-```
-- iOS 의존성 반영
-```bash
-pod install
+# Mac
+./gradlew --refresh-dependencies
+
+# Window
+gradlew.bat --refresh-dependencies
 ```
 
 ### 🌐 3) 앱 빌드
 ```bash
-# iOS
-flutter build ios
-
-# Android
-flutter build apk
+./gradlew build
 ```
 
-## 🌿 4. 브랜치 전략
-- 중대한 변경 사항이 생길 때 브랜치에서 작업, 그 이외에는 main에서 작업
-
-## 📁 5. 프로젝트 구조
+## 📁 4. 프로젝트 구조
 ```
-lib/
-├─ src/
-│  ├─ assets/            # 아이콘, 이미지 리소스
-│  ├─ components/        # 공통 UI 컴포넌트
-│  │  ├─ bottom_button_row.dart  # 하단 버튼 행
-│  │  ├─ description_text.dart   # 설명 텍스트
-│  │  ├─ mic_icon.dart          # 마이크 아이콘
-│  │  ├─ my_app_bar.dart        # 앱 바
-│  │  ├─ my_text_field.dart     # 텍스트 필드
-│  │  └─ waveform_painter.dart  # 파형 페인터
-│  ├─ consts/            # 상수 정의
-│  │  ├─ tag_const.dart         # 태그 상수
-│  │  ├─ waveform_const.dart    # 파형 상수
-│  │  └─ zeroth_define.dart     # 기본 정의
-│  ├─ models/            # 데이터 모델
-│  │  ├─ text_size_model.dart   # 텍스트 크기 모델
-│  │  ├─ text_store_model.dart  # 텍스트 저장소 모델
-│  │  └─ waveform_model.dart    # 파형 모델
-│  ├─ navigation/        # 네비게이션 설정
-│  ├─ pages/             # 주요 화면
-│  ├─ styles/            # 컴포넌트별 스타일 정의
-│  └─ utils/             # 유틸리티 함수
-│     └─ list_extensions.dart   # 리스트 확장 기능
-└─ main.dart            # 앱 진입점
+example/soratemi3/
+│  Agreement.java          # 이용 약관 동의 화면
+│  CareInform.java         # 케어 서비스 정보 안내 화면
+│  CareService.java        # 케어 서비스 선택 화면
+│  CareStart.java          # 케어 서비스 시작 화면
+│  CareStep1.java          # 케어 서비스 1단계 화면
+│  CareStep2.java          # 케어 서비스 2단계 화면
+│  CareStepf.java          # 케어 서비스 최종 단계 화면
+│  Charge.java             # 요금 결제 화면
+│  CheckHair.java          # 헤어 상태 체크 화면
+│  DesignSel.java          # 헤어 디자인 선택 화면
+│  FirebaseTest.java       # Firebase 연동 테스트 모듈
+│  JuiceSel.java           # 음료 선택 화면
+│  LoadingDrinkHere.java   # '이곳에서 음료' 로딩 화면
+│  LoadingEmpty.java       # 빈 로딩 화면
+│  LoadingFollow.java      # '따라오세요' 로딩 화면
+│  MainActivity.java       # 앱 메인 화면
+│  PayCheck.java           # 결제 확인 화면
+│  PayReceipt.java         # 결제 영수증 화면
+│  PayRfid.java            # RFID 결제 화면
+│  Recommend.java          # 스타일 추천 화면
+│  Register.java           # 고객 등록 화면
+│
+└─temi/                   # 테미 로봇 관련 기능
+    CustomTtsListener.java     # 테미 로봇 음성 출력 리스너
+    RoboTemi.java              # 테미 로봇 제어 클래스
+    RoboTemiListeners.java     # 테미 로봇 이벤트 리스너
 ```
 
-## 🎭 6. 역할
+## 🎭 5. 역할
 
 ### 🐚 도소라
 
-- Android(Java) >> Flutter 마이그레이션
-- 말마디로 음성을 전송하는 VAD 구현
-- 음성 크기에 따른 랜덤 파형 표출
-- Task별로 작업내용을 노션에 매뉴얼을 문서화하여 전달
-- [앱개발 매뉴얼 노션 링크]([https://www.example.com](https://juicy-dill-e52.notion.site/faff81c8570e4c8bb786913993020d41?pvs=4))
+- 이용약관, 케어 서비스 정보, 음료 선택, RFID 결제 화면 등 전반적인 UI 개발
+- 화면 전환 구현
+- 화면 전환 시 가격 전달, 데이터 전달 구현
 
-## 📅 7. 개발 기간
-2024.01 ~ 2024.06 (5개월)
+## 📅 6. 개발 기간
+- 전체 개발 기간: 2022.03 ~ 2022.06
+- 기획 및 디자인: 2022.03 ~ 2022.05
+- 개발: 2022.05 ~ 2022.06
 
-## 📜 8. 기능 설명
+## 📜 7. 기능 설명
 
 | 말하는 중 | 침묵 감지 | 텍스트 크기 변경 |
 | :-----: | :-----: | :-----: |
@@ -129,7 +126,7 @@ lib/
 | :-----: | :-----: |
 | <img src="https://github.com/user-attachments/assets/d77cd833-f118-4a5c-8b09-c13a8c3d4499" width="300"> | <img src="https://github.com/user-attachments/assets/aa868273-41c0-4d66-bcc1-a2d706fdab9c" width="300"> |
 
-## 💥 9. 트러블 슈팅
+## 💥 8. 트러블 슈팅
 
 ### ⚠️ 1) iOS 시뮬레이터 빌드 멈춤 문제
 - Xcode에서 아래와 같은 에러 발생시,
