@@ -2,11 +2,11 @@
 
 ## 📖 1. 프로젝트 소개
 
-<img src="https://github.com/user-attachments/assets/64bd69a1-1767-4890-9ab2-33c715cd8087" width=300>
+![테미 깃허브 표지](https://github.com/user-attachments/assets/fad0098f-1972-4365-8e66-1e62150370be)
 
 - 모바일로봇 테미는 디스플레이가 탑재된 이동가능한 로봇입니다.
 - 테미를 활용해 미용실 업무를 보조할 수 있는 시나리오를 구상하고, 로봇 전용 안드로이드 앱을 개발했습니다.
-  
+
 ## 🛠️ 2. 개발 환경
 
 ### 🔍 1) 프레임워크 및 언어
