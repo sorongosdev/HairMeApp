@@ -1,41 +1,165 @@
-# HairTemi
- 모바일로봇 테미를 이용해, '미용실'이라는 환경에서 구현가능한 시나리오를 구상해 진행한 프로젝트이다.
+# 🗣️ 미용실 업무 보조 로봇, 테미
+
+## 📖 1. 프로젝트 소개
+
+<img src="https://github.com/user-attachments/assets/64bd69a1-1767-4890-9ab2-33c715cd8087" width=300>
+
+- 모바일로봇 테미는 디스플레이가 탑재된 이동가능한 로봇입니다.
+- 테미를 활용해 미용실 업무를 보조할 수 있는 시나리오를 구상하고, 로봇 전용 안드로이드 앱을 개발했습니다.
   
-## 테미란?
- 프리미엄 디자인과 함께 자율주행 가능한 AI 퍼스널 로봇이다.
- 
- 테미는 우리를 인식하여 자유롭게 따라다닐 수도 있고,
+## 🛠️ 2. 개발 환경
 
- 사전 설정된 위치를 저장하여 자율 이동 역시 가능하다.
+### 🔍 1) 프레임워크 및 언어
+- Front-end: Java ()
+- Back-end: Real-time Firebase ()
 
- 또한 집과 사무실 등 실내에서 이동해 다니면서
+### 🔧 2) 개발 도구
+Android Studio: 2024.2.2
 
- 끊김없는 깨끗한 영상연결을 통해 화상전화를 하거나 웹 서비스를 이용하게 해주는 로봇이다.
- 
-## 전체 구성
- 아두이노 R1D1보드 및 RFID 센서, 적외선 센서, 와이파이 모듈을 사용하였으며,
- 
- 아두이노 와이파이 모듈을 이용해 테미와 파이어베이스로 통신을 했다. 
- 
- ![image](https://user-images.githubusercontent.com/61692372/181080083-eb348959-a43b-4982-9424-cde02595be35.png)
+### 📱 3) 테스트 환경
+- Android 에뮬레이터: API 레벨 34 (Android 14.0)
+- Mobile Robot Temi: 
 
- 
-## UI/UX 디자인
-피그마를 이용해 디자인팀이 제작했다.
+### 📚 4) 주요 라이브러리 및 API
+- permission_handler: 11.2.0
 
-피그마 링크
-https://www.figma.com/file/Xm5XCFiPuk98dxbZZdzEjB/Untitled?node-id=0%3A1
+### 🔖 5) 버전 및 이슈 관리
+- Git: 2.39.3
 
-## 개발 환경
-안드로이드 스튜디오에서 자바 언어로 개발을 진행했다.
- 
-## 프로젝트 시작 배경
-![image](https://user-images.githubusercontent.com/61692372/181079209-936db6c6-f7df-4559-b6bb-c9f70678c82b.png)
+### 👥 6) 협업 툴
+- 커뮤니케이션: Kakaotalk, Email
+- 문서 관리: Notion
 
-![image](https://user-images.githubusercontent.com/61692372/181078913-cd8acbb5-4c30-450f-b180-a337dcc1d098.png)
+### ☁️ 7) 서비스 배포 환경
+- 백엔드 서버: 자체 WebSocket 서버 (WSS 프로토콜)
+- 배포 방식: 자체 호스팅
 
-## 시나리오 설명
-![image](https://user-images.githubusercontent.com/61692372/181076357-a79df6e5-e415-46ea-921e-9e63c841d8d7.png)
+## ▶️ 3. 프로젝트 실행 방법
 
-## 제공하는 서비스 한눈에 보기
-![image](https://user-images.githubusercontent.com/61692372/181078840-22300123-7e15-4573-b6b9-3a722d15dc74.png)
+### ⬇️ 1) 필수 설치 사항
+
+#### ① 기본 환경
+- Flutter SDK (최소 3.2.3 버전 필요)
+- Dart SDK (3.2.3 이상)
+- Android Studio (최신 버전)
+- Android SDK: Flutter, Dart 플러그인
+- Xcode (iOS 개발용, macOS 필요)
+- CocoaPods (iOS 의존성 관리, macOS 필요)
+
+#### ② 필수 의존성 패키지
+- flutter: SDK
+- cupertino_icons: 1.0.2
+- intl: 0.19.0
+- isolate: 2.1.1
+
+### ⿻ 2) 프로젝트 클론 및 설정
+- 프로젝트 클론
+```bash
+git clone https://github.com/sorongosdev/flutter_app.git
+```
+- 의존성 설치
+```bash
+flutter pub get
+```
+- iOS 의존성 반영
+```bash
+pod install
+```
+
+### 🌐 3) 앱 빌드
+```bash
+# iOS
+flutter build ios
+
+# Android
+flutter build apk
+```
+
+## 🌿 4. 브랜치 전략
+- 중대한 변경 사항이 생길 때 브랜치에서 작업, 그 이외에는 main에서 작업
+
+## 📁 5. 프로젝트 구조
+```
+lib/
+├─ src/
+│  ├─ assets/            # 아이콘, 이미지 리소스
+│  ├─ components/        # 공통 UI 컴포넌트
+│  │  ├─ bottom_button_row.dart  # 하단 버튼 행
+│  │  ├─ description_text.dart   # 설명 텍스트
+│  │  ├─ mic_icon.dart          # 마이크 아이콘
+│  │  ├─ my_app_bar.dart        # 앱 바
+│  │  ├─ my_text_field.dart     # 텍스트 필드
+│  │  └─ waveform_painter.dart  # 파형 페인터
+│  ├─ consts/            # 상수 정의
+│  │  ├─ tag_const.dart         # 태그 상수
+│  │  ├─ waveform_const.dart    # 파형 상수
+│  │  └─ zeroth_define.dart     # 기본 정의
+│  ├─ models/            # 데이터 모델
+│  │  ├─ text_size_model.dart   # 텍스트 크기 모델
+│  │  ├─ text_store_model.dart  # 텍스트 저장소 모델
+│  │  └─ waveform_model.dart    # 파형 모델
+│  ├─ navigation/        # 네비게이션 설정
+│  ├─ pages/             # 주요 화면
+│  ├─ styles/            # 컴포넌트별 스타일 정의
+│  └─ utils/             # 유틸리티 함수
+│     └─ list_extensions.dart   # 리스트 확장 기능
+└─ main.dart            # 앱 진입점
+```
+
+## 🎭 6. 역할
+
+### 🐚 도소라
+
+- Android(Java) >> Flutter 마이그레이션
+- 말마디로 음성을 전송하는 VAD 구현
+- 음성 크기에 따른 랜덤 파형 표출
+- Task별로 작업내용을 노션에 매뉴얼을 문서화하여 전달
+- [앱개발 매뉴얼 노션 링크]([https://www.example.com](https://juicy-dill-e52.notion.site/faff81c8570e4c8bb786913993020d41?pvs=4))
+
+## 📅 7. 개발 기간
+2024.01 ~ 2024.06 (5개월)
+
+## 📜 8. 기능 설명
+
+| 말하는 중 | 침묵 감지 | 텍스트 크기 변경 |
+| :-----: | :-----: | :-----: |
+| <img src="https://github.com/user-attachments/assets/589136e1-a920-4594-b114-f9f9cf4a627a" width="300"> | <img src="https://github.com/user-attachments/assets/bb23905b-4467-40cb-aa9c-ca0dae0dbb09" width="300"> | <img src="https://github.com/user-attachments/assets/c827bd03-289c-40a5-a216-1442fa5a15db" width="300"> |
+
+| 저장 | 불러오기 |
+| :-----: | :-----: |
+| <img src="https://github.com/user-attachments/assets/d77cd833-f118-4a5c-8b09-c13a8c3d4499" width="300"> | <img src="https://github.com/user-attachments/assets/aa868273-41c0-4d66-bcc1-a2d706fdab9c" width="300"> |
+
+## 💥 9. 트러블 슈팅
+
+### ⚠️ 1) iOS 시뮬레이터 빌드 멈춤 문제
+- Xcode에서 아래와 같은 에러 발생시,
+  ```
+  [FATAL:flutter/display_list/skia/dl_sk_dispatcher.cc(277)] Check failed: false.
+  ```
+- 프로젝트의 루트 경로에서 아래 명령어로 실행
+  ```bash
+  flutter run --no-enable-impeller
+  ```
+
+### ⚠️ 2) 맥 안드로이드 에뮬레이터에서 마이크 기능 미동작 문제
+- 안드로이드 스튜디오에서 안드로이드 에뮬레이터를 실행하면 녹음 기능을 사용할 수 없음
+- 터미널에서 호스트 오디오 권한을 주어 실행해야함
+- iOS 시뮬레이터에서는 정상 동작함
+- 해결 방법
+  ① 터미널에서 emulator 관련 환경 변수 추가
+  ```bash
+  echo 'export PATH=$PATH:/Users/sora/Library/Android/sdk/emulator' >> ~/.zshrc
+  
+  source ~/.zshrc
+  ```
+  
+  ② 에뮬레이터 리스트업
+  ```bash
+  emulator -list-avds
+  ```
+  
+  ③ 오디오 권한을 허용하여 에뮬레이터 실행 (Pixel4_API34 부분에 에뮬레이터 이름)
+     띄어쓰기 없이 이름 설정할 것. 안드로이드 스튜디오의 Device Manager에서 이름 변경 가능
+  ```bash
+  emulator -avd Pixel4_API34 -qemu -allow-host-audio
+  ```
