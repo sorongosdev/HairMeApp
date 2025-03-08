@@ -10,7 +10,7 @@
 ## 🛠️ 2. 개발 환경
 
 ### 🔍 1) 프레임워크 및 언어
-- Front-end: Java ()
+- Front-end: Java 8 (1.8)
 - Back-end: Real-time Firebase ()
 
 ### 🔧 2) 개발 도구
